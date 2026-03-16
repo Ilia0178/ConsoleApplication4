@@ -15,7 +15,7 @@ CXX = g++
 CXXFLAGS = -Wall -Wextra -std=c++17 -O2
 
 # Имя временной папки и DEB файла
-PKG_NAME = prime-checker-1.0
+PKG_NAME = prime_checker-1.0
 DEB_FILE = $(PKG_NAME).deb
 
 # ====================================================================
