@@ -51,7 +51,7 @@ $(TARGET): setup $(SRC)
 # 2. Создание пакета DEB 
 # --------------------------------------------------------------------
 .PHONY: package
-package: clean setup
+package: clean setup all
 	@echo "--- Подготовка структуры пакета DEB ---"
 	
 	# Проверка dpkg-deb
@@ -69,7 +69,7 @@ package: clean setup
 	
 	# 3. Создание директории DEBIAN и файла control
 	mkdir -p $(PKG_NAME)/DEBIAN
-	echo "Package: prime_checker" > $(PKG_NAME)/DEBIAN/control
+	echo "Package: prime-checker" > $(PKG_NAME)/DEBIAN/control
 	echo "Version: 1.0" >> $(PKG_NAME)/DEBIAN/control
 	echo "Architecture: amd64" >> $(PKG_NAME)/DEBIAN/control
 	echo "Maintainer: Team Name <team.email@example.com>" >> $(PKG_NAME)/DEBIAN/control 
@@ -79,7 +79,8 @@ package: clean setup
 
 	# 4. Сборка .deb пакета
 	dpkg-deb --build $(PKG_NAME)
-	
+	rm -rf $(PKG_NAME)
+	rm -f $(TARGET)
 	@echo "--------------------------------------------------------------------"
 	@echo "SUCCESS: DEB package created: $(DEB_FILE)"
 	@echo "--------------------------------------------------------------------"
