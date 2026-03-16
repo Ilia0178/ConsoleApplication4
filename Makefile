@@ -6,7 +6,7 @@
 TARGET = prime_checker
 
 # Имя исходного файла
-SRC = simple_prime_checker.cpp
+SRC = ConsoleApplication4.cpp
 
 # Компилятор C++
 CXX = g++
